@@ -5,11 +5,17 @@ th {
 }
 
 .input-group {
-    margin: 20px 0px;
+    margin: 20px 100px;
 }
 
 svg {
     height: 150px;
+}
+
+.table {
+    margin: 0px 100px 0px 100px;
+    width:calc( 100% - 200px) !important;
+    max-width:calc( 100% - 200px) !important;
 }
 
 td:first-of-type,

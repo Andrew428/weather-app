@@ -10,15 +10,18 @@ class WeatherList extends Component {
         const pressure = data.list.map(weather => weather.main.pressure);
         const temp_data = {
             data:temps,
-            color: 'blue'
+            color: 'blue',
+            units: 'F'
         }
         const humidity_data = {
             data:humidity,
-            color: 'orange'
+            color: 'orange',
+            units: 'hPa'
         }
         const pressure_data = {
             data:pressure,
-            color: 'green'
+            color: 'green',
+            units: '%'
         }
         return(            
             <tr key={data.city.name}>
@@ -37,9 +40,9 @@ class WeatherList extends Component {
                 <thead>
                     <tr>
                         <th>City</th>
-                        <th>Temperature</th>
-                        <th>Pressure</th>
-                        <th>Humidity</th>                        
+                        <th>Temperature (F)</th>
+                        <th>Pressure (hPa)</th>
+                        <th>Humidity (%)</th>                        
                     </tr>
                 </thead>
                 <tbody>
