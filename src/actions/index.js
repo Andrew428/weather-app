@@ -6,12 +6,16 @@ export const FETCH_WEATHER = 'FETCH_WEATHER';
 
 export function fetchWeather(city){
     const url = `${ROOT_URL}&q=${city},us&mode=json`;   
-    const request = axios.get(url);
 
+    const weatherData = axios.get(url);
+    console.log('weatherData Request:', weatherData);    
+
+    //Using ReduxPromis Middleware to get the respone
     return{
         type: FETCH_WEATHER,
-        payload: request
-    };
+        payload: weatherData
+    };   
+    
 }
 
 
