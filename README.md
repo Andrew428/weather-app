@@ -1,3 +1,5 @@
 # Weather App
 
-### Still in progress
+### Run App:
+#### yarn
+#### yarn start
