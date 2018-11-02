@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import  Chart from '../components/chart'
+import  Chart from '../components/chart';
+/*import  GoogleMap from '../components/google_map';*/
 
 class WeatherList extends Component {
-    renderWeather(data){
-        console.log(data);        
+    renderWeather(data, index){
+        console.log(data);  
+        console.log(index);       
         const temps = data.list.map(weather => (weather.main.temp - 273.15) * 9/5 + 32);
         const humidity = data.list.map(weather => weather.main.humidity);
         const pressure = data.list.map(weather => weather.main.pressure);
+        const city_data = {
+            name: data.city.name,
+            lat: data.city.coord.lat,
+            lon: data.city.coord.lon
+        }
         const temp_data = {
             data:temps,
             color: 'blue',
@@ -24,8 +31,10 @@ class WeatherList extends Component {
             units: '%'
         }
         return(            
-            <tr key={data.city.name}>
-                <td >{data.city.name}</td>
+            <tr key={index}>
+                <td >{city_data.name} 
+                   {/*<GoogleMap data={city_data} />*/}
+                </td>
                 <Chart data={temp_data} />
                 <Chart data={humidity_data} />
                 <Chart data={pressure_data} />
@@ -46,7 +55,7 @@ class WeatherList extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.props.weather.map(this.renderWeather)}
+                    {this.props.weather.map((data, index) => this.renderWeather(data, index))}
                 </tbody>
             </table>
             

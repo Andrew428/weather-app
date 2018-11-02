@@ -25,6 +25,8 @@ class SearchBar extends Component {
 
     onFormSubmit(event) {
          event.preventDefault();
+         document.getElementById("cityInput").classList.remove("has-error");
+         document.getElementById("cityInput").placeholder = "Get a 5 day forcast for you favorit cities"
 
          // go fetch weather data here
          this.props.fetchWeather(this.state.term);
@@ -37,12 +39,13 @@ class SearchBar extends Component {
 
     render() {
         return(
-            <form onSubmit={this.onFormSubmit} className="input-group"> 
+            <form onSubmit={this.onFormSubmit} className="input-group">
                 <input 
                     placeholder = "Get a 5 day forcast for you favorit cities"
                     className = "form-control search-city"
                     value = { this.state.term }
                     onChange = { this.onInputChange }
+                    id="cityInput"
                 />
                 <span className="input-group-btn">
                     <button type="submit" className="btn btn-secondary">Submit</button>

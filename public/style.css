@@ -23,3 +23,16 @@ td:first-of-type>div {
     height: 200px;
     width: 250px;
 }
+
+
+input:focus{
+    border: 1px solid grey !important;
+}
+
+.has-error{
+    border: 1px solid red !important;
+}
+
+.has-error:focus{
+    border: 1px solid red !important;
+}
