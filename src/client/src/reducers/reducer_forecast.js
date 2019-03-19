@@ -1,15 +1,15 @@
-import { FETCH_WEATHER } from "../actions";
+import * as actionTypes from '../actions/actionTypes';
 
 export default function (state = [], action){
+        // console.log("stats:",state);
         if(action.error === true){
                 document.getElementById("cityInput").className += " has-error";
                 document.getElementById("cityInput").placeholder = "That city was not found, try another one."
                 return state;
         }
-        switch(action.type){
-                case FETCH_WEATHER:
-                        //return action.payload.data.concat([ state ]);
-                        return [action.payload.data, ...state];
+        switch(action.type){               
+                case actionTypes.FETCH_FORECAST:                        
+                        return [action.forecastData];
                 default: return state;
         }
         
